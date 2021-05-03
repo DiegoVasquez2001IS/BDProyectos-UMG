@@ -1,0 +1,48 @@
+=> SCRIPT PARA: Seguridad
+
+=== TABLA: Aplicaciones ===
+-------------------------------------
+
+INSERT INTO `tbl_aplicacion` (`PK_id_aplicacion`, `nombre_aplicacion`, `descripcion_aplicacion`, `no_reporteAsociado`, `estado_aplicacion`) VALUES
+(1, 'Contabilidad', 'Lleva el registro financiero de los ingresos y egresos de la empresa.', 1, 1),
+(2, 'Generar Asiento Contable', 'Generación de Asiento Contable', 2, 1),
+(10, 'Mantenimiento Usuarios', 'Mantenimiento para crear, eliminar, modificar, leer e imprimir información de  usuarios.', 10, 1),
+(20, 'Mantenimiento de Aplicaciones', 'Mantenimiento para crear, eliminar, modificar, leer e imprimir información de  aplicaciones.', 20, 1),
+(30, 'Mantenimiento de Perfiles', 'Mantenimiento para crear, eliminar, modificar, leer e imprimir información de  perfiles.', 30, 1),
+(40, 'Mantenimiento de Módulos', 'Mantenimiento para crear, eliminar, modificar, leer e imprimir información de  usuarios.', 40, 1),
+(1000, 'Mantenimiento Cuentas Contables', 'Clasificación cuentas contables', 1000, 1),
+(1001, 'Mantenimiento Periodo Fiscal', 'Mantenimiento de períodos fiscales', 1001, 1);
+-------------------------------------
+
+=== TABLA: Usuario - Aplicacion ===
+-------------------------------------
+
+INSERT INTO `tbl_usuario_aplicacion` (`PK_id_usuario`, `PK_id_aplicacion`, `ingresar`, `consulta`, `modificar`, `eliminar`, `imprimir`) VALUES
+('1', 1, 0, 1, 1, 1, 1),
+('1', 2, 0, 1, 1, 1, 1),
+('1', 10, 1, 1, 1, 1, 1),
+('1', 20, 1, 1, 1, 1, 1),
+('1', 30, 1, 1, 1, 1, 1),
+('1', 40, 1, 1, 1, 1, 1),
+('1', 1000, 1, 1, 1, 0, 0),
+('1', 1001, 1, 1, 1, 0, 0);
+
+-------------------------------------
+
+
+=> SCRIPT PARA: Finanzas
+
+=== TABLA: ClasificacionCuenta ===
+------------------------------------
+INSERT INTO `clasificacioncuenta` (`Codigo_clasificacion`, `Clasificacion_CuentaNombre`, `Descripcion_Clasificacion`) VALUES
+('A001', 'Activo Corriente', 'Activos que se movilizan en la empresa en un período menor o igual a un año.'),
+('A002', 'Activo No Corriente', 'Activos que se movilizan en un período mayor a un año y menor a 3 años.'),
+('C001', 'Resultados', 'Capital de la Empresa'),
+('P001', 'Pasivo Corriente', 'Pasivos que se movilizan en un período menor a un año.'),
+('P002', 'Pasivo No Corriente', 'Pasivos que circulan entre uno y tres años.');
+------------------------------------
+
+=== TABLA: CuentaContable ===
+INSERT INTO `cuentacontable` (`Codigo_CuentaContable`, `Nombre_CuentaContable`, `Clasificacion_CuentaContable`, `Estado_CuentaContable`, `Monto_CuentaContable`) VALUES
+('A001-Caja', 'Caja', 'A001', 'A', '0'),
+('A002-Bancos', 'Bancos', 'A002', 'I', '0');
